@@ -237,6 +237,31 @@
       border-color: #d4d4d8;
       color: #0284c7;
     }
+/* Эффект приподнимания и подсвечивания для кнопок и полей */
+  .button, input, textarea, a[href*="t.me"] {
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  }
+  
+  .button:hover, a[href*="t.me"]:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4) !important;
+  }
+
+  /* Анимация всплытия блоков при скролле */
+  section {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
   </style>
 </head>
 
