@@ -292,13 +292,30 @@
     </div>
   </section>
 
-  <section id="contacts">
+  
+   <section id="contacts">
     <h2>Контакты</h2>
-    <p>Свяжись со мной в соцсетях:</p>
-    <div class="social-links">
-      <a href="https://github.com" target="_blank">GitHub</a>
-      <a href="https://t.me" target="_blank">Telegram</a>
-    </div>
+    <p>Напиши мне сообщение, и оно придет мне напрямую:</p>
+    
+    <!-- Форма обратной связи -->
+   <form action="https://formspree.io/f/xgaopwjy" method="POST" style="max-width: 450px; margin: 30px auto; text-align: left;">
+      <div style="margin-bottom: 15px;">
+        <label style="display: block; margin-bottom: 5px; color: #a5b4fc; font-size: 14px;">Твое имя</label>
+        <input type="text" name="name" required style="width: 100%; padding: 12px; background: #18181b; border: 1px solid #27272a; border-radius: 10px; color: #fff; font-size: 16px;">
+      </div>
+      
+      <div style="margin-bottom: 15px;">
+        <label style="display: block; margin-bottom: 5px; color: #a5b4fc; font-size: 14px;">Твой Email</label>
+        <input type="email" name="email" required style="width: 100%; padding: 12px; background: #18181b; border: 1px solid #27272a; border-radius: 10px; color: #fff; font-size: 16px;">
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <label style="display: block; margin-bottom: 5px; color: #a5b4fc; font-size: 14px;">Сообщение</label>
+        <textarea name="message" rows="4" required style="width: 100%; padding: 12px; background: #18181b; border: 1px solid #27272a; border-radius: 10px; color: #fff; font-size: 16px; resize: none;"></textarea>
+      </div>
+
+      <button type="submit" class="button" style="width: 100%; margin-top: 0;">Отправить сообщение</button>
+    </form>
   </section>
 </main>
 
@@ -352,5 +369,7 @@
   });
 </script>
 
+</body>
+</html>
 </body>
 </html>
