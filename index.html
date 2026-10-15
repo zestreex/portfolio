@@ -132,6 +132,20 @@
       border-radius: 18px;
       transition: all 0.3s ease;
     }
+	.project:link {
+      display: inline-block;
+      margin-top: 15px;
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: color 0.2s ease;
+    }
+
+    .project-link:hover {
+      color: #818cf8;
+      text-decoration: underline;
+    }
 
     .card:hover {
       transform: translateY(-6px);
@@ -297,22 +311,20 @@
     </div>
   </section>
 
-  <section id="projects">
+ <section id="projects">
     <h2>Мои проекты</h2>
+    <p>То, что я уже создал своими руками:</p>
     <div class="cards">
       <article class="card">
-        <h3>🌐 Мой первый сайт</h3>
-        <p>Моя первая страница, созданная с помощью HTML и CSS.</p>
+        <h3>🌐 Моё первое портфолио</h3>
+        <p>Тот самый сайт, на котором ты сейчас находишься. Написан на чистом HTML, CSS и JS, с поддержкой тем и анимаций.</p>
+        <a href="https://github.com/zestreex/portfolio" target="_blank" class="project-link">Посмотреть код →</a>
       </article>
 
       <article class="card">
-        <h3>🎯 Цель на будущее</h3>
-        <p>Научиться создавать сложные веб-приложения и брать первые заказы на фрилансе.</p>
-      </article>
-
-      <article class="card">
-        <h3>🚀 Интерактив</h3>
-        <p>Добавление анимаций, тем оформления и скриптов на JS.</p>
+        <h3>🎯 Планы на будущее</h3>
+        <p>Здесь появится твой следующий крутой проект (например, интерактивный калькулятор, игра или лендинг).</p>
+        <span class="project-link" style="color: #71717a; cursor: default;">Скоро...</span>
       </article>
     </div>
   </section>
