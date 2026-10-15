@@ -378,6 +378,26 @@
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 <script>
+// Логика плавного появления при прокрутке (Reveal on Scroll)
+    document.addEventListener('DOMContentLoaded', () => {
+      const revealOnScroll = () => {
+        const sections = document.querySelectorAll('section, #projects .card');
+        const triggerPoint = window.innerHeight * 0.9; // 90% высоты экрана
+
+        sections.forEach(section => {
+          const sectionTop = section.getBoundingClientRect().top;
+
+          if (sectionTop < triggerPoint) {
+            section.classList.add('show');
+          }
+        });
+      };
+
+      // Запускаем проверку один раз при загрузке
+      revealOnScroll();
+      // И потом при каждой прокрутке
+      window.addEventListener('scroll', revealOnScroll);
+    });
   function secretClick() {
     confetti({
       particleCount: 120,
