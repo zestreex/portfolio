@@ -261,22 +261,7 @@
     box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4) !important;
   }
 
-  /* Анимация всплытия блоков при скролле */
-  section {
-    animation: fadeInUp 0.8s ease-out forwards;
-  }
-
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  </style>
+   </style>
 </head>
 
 <body>
@@ -426,19 +411,7 @@
   // Запускаем печать через полсекунды после загрузки
   setTimeout(typeText, 500);
 
-  /* Появление блоков при прокрутке */
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-      }
-    });
-  }, { threshold: 0.15 });
-
-  document.querySelectorAll('section').forEach(section => {
-    observer.observe(section);
-  });
-// Логика фильтрации проектов
+ // Логика фильтрации проектов
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('#projects .card');
 
@@ -462,6 +435,18 @@
         });
       });
     });
+ /* Появление блоков при прокрутке */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.15 });
+
+document.querySelectorAll('section, #projects .card').forEach(element => {
+    observer.observe(element);
+  });
 </script>
 
 </body>
