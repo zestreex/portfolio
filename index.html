@@ -314,14 +314,24 @@
  <section id="projects">
     <h2>Мои проекты</h2>
     <p>То, что я уже создал своими руками:</p>
+
+    <!-- Кнопки фильтров -->
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">Все</button>
+      <button class="filter-btn" data-filter="html-css">HTML / CSS</button>
+      <button class="filter-btn" data-filter="js">JavaScript</button>
+    </div>
+
     <div class="cards">
-      <article class="card">
+      <!-- Добавили data-category="html-css" -->
+      <article class="card" data-category="html-css">
         <h3>🌐 Моё первое портфолио</h3>
         <p>Тот самый сайт, на котором ты сейчас находишься. Написан на чистом HTML, CSS и JS, с поддержкой тем и анимаций.</p>
         <a href="https://github.com/zestreex/portfolio" target="_blank" class="project-link">Посмотреть код →</a>
       </article>
 
-      <article class="card">
+      <!-- Добавили data-category="js" -->
+      <article class="card" data-category="js">
         <h3>🎯 Планы на будущее</h3>
         <p>Здесь появится твой следующий крутой проект (например, интерактивный калькулятор, игра или лендинг).</p>
         <span class="project-link" style="color: #71717a; cursor: default;">Скоро...</span>
@@ -408,6 +418,30 @@
   document.querySelectorAll('section').forEach(section => {
     observer.observe(section);
   });
+// Логика фильтрации проектов
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('#projects .card');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Меняем активную кнопку
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        const filterValue = button.getAttribute('data-filter');
+
+        // Фильтруем карточки
+        projectCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+
+          if (filterValue === 'all' || category === filterValue) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
 </script>
 
 </body>
