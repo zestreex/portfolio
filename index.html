@@ -21,6 +21,37 @@
       background: #0f1015;
       color: #e4e4e7;
       font-family: 'Inter', Arial, sans-serif;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Технологичный фоновый паттерн (сетка и свечение) */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(to right, rgba(39, 39, 42, 0.25) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(39, 39, 42, 0.25) 1px, transparent 1px);
+      background-size: 40px 40px;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    /* Мягкие светящиеся неоновые пятна на фоне */
+    .bg-glow {
+      position: fixed;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(15, 16, 21, 0) 70%);
+      z-index: -1;
+      pointer-events: none;
     }
 
     header {
@@ -43,6 +74,8 @@
       margin: 40px auto;
       padding: 0 24px;
       text-align: center;
+      position: relative;
+      z-index: 1;
     }
 
     section {
@@ -115,6 +148,29 @@
       box-shadow: 0 6px 25px rgba(139, 92, 246, 0.6);
     }
 
+    .filter-buttons {
+      margin-bottom: 20px;
+    }
+
+    .filter-btn {
+      background: #18181b;
+      border: 1px solid #27272a;
+      color: #a1a1aa;
+      padding: 8px 16px;
+      margin: 0 5px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: #6366f1;
+      color: #fff;
+      border-color: #6366f1;
+      box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+    }
+
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -124,7 +180,8 @@
     }
 
     .card {
-      background: #18181b;
+      background: rgba(24, 24, 27, 0.8);
+      backdrop-filter: blur(8px);
       border: 1px solid #27272a;
       padding: 24px;
       border-radius: 18px;
@@ -167,7 +224,7 @@
     }
 
     .skill-badge {
-      background: #18181b;
+      background: rgba(24, 24, 27, 0.8);
       border: 1px solid #3f3f46;
       padding: 12px 24px;
       border-radius: 30px;
@@ -201,6 +258,8 @@
       text-align: center;
       padding: 40px;
       color: #71717a;
+      position: relative;
+      z-index: 1;
     }
 
     /* Светлая тема */
@@ -209,13 +268,23 @@
       color: #27272a;
     }
 
+    body.light-theme::before {
+      background-image: 
+        linear-gradient(to right, rgba(228, 228, 231, 0.6) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(228, 228, 231, 0.6) 1px, transparent 1px);
+    }
+
+    body.light-theme .bg-glow {
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, rgba(244, 244, 245, 0) 70%);
+    }
+
     body.light-theme header {
       background: rgba(244, 244, 245, 0.85);
       border-bottom: 1px solid #e4e4e7;
     }
 
     body.light-theme .card {
-      background: #ffffff;
+      background: rgba(255, 255, 255, 0.9);
       border-color: #e4e4e7;
     }
 
@@ -223,6 +292,12 @@
       background: #ffffff;
       border-color: #d4d4d8;
       color: #0284c7;
+    }
+
+    body.light-theme .filter-btn {
+      background: #ffffff;
+      border-color: #d4d4d8;
+      color: #52525b;
     }
 
     .scroll-top-btn {
@@ -260,6 +335,7 @@
 </head>
 
 <body>
+<div class="bg-glow"></div>
 
 <header>
   <span>MY FIRST PROJECT</span>
